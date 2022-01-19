@@ -1,0 +1,115 @@
+---
+title: "LabMei3"
+author: "Diego Fernández"
+date: "16/11/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+print("buenos dias")
+```
+#ejercicio 1. Representar la distribucion normal
+
+ d -> funcion de densidad
+ p -> funcion de distribucion
+ q -> calcula el quantil
+ r -> random
+
+
+```{r}
+x <- seq(-4, 4, 0.2)
+y <- dnorm(x)
+
+plot(x,y)
+plot(x,y, type = "l")
+```
+
+
+#ejercicio 2. Modificar la media
+
+```{r}
+x <- seq(-4, 4, 0.2)
+y <- dnorm(x)
+plot(x,y)
+
+for (m in -4:4) {
+  
+  y <- dnorm(x,m)
+  lines(x,y, col = m + 4)
+}
+```
+
+
+#ejercicio 3. Experimentando con la desviación típica
+
+```{r}
+x <- seq(-4, 4, 0.2)
+y <- dnorm(x)
+
+plot(x, dnorm(x))
+for (s in 1:4) {
+  y <- dnorm(x, sd = s)
+  lines(x,y, col = s + 4)
+}
+```
+
+#ejercicio 4. 
+```{r}
+m <- 3.5
+s <- 5
+  #Dibujamos en [m-4*s, m+4*s]
+  
+  x <- seq(-4, 4, 0.2)
+  y <- dnorm(x,m,s)
+  
+  
+  plot(x, y)
+  
+  a <- rnorm(1, m, s)
+  points(a, 0)
+  
+  pnorm(a,m,s)
+  
+  
+```
+
+#ejercicio 5.
+
+```{r}
+m <- 3.5
+s <- 5
+
+x <- seq(m-4*s, m+4*s, 0.2)
+  y <- dnorm(x, m ,s)
+  
+  
+  
+
+x2 <- seq(m-4*s, a, 0.2)
+y2 <- dnorm(x2, m, s)
+plot(x,y)
+points(x2, y2, type = "h")
+p <- pnorm(a,m,s,lower.tail = FALSE)
+
+x3 <- seq(a, m+4*s)
+y3 <- dnorm(x3)
+
+```
+
+#ejercicio 6. Usar t-student
+
+```{r}
+
+#dt(x, dof = k)
+#pt
+
+
+#dchisq(x, k)
+#pchisq(a, k)
+
+```
